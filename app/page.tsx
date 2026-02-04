@@ -28,6 +28,7 @@ export default function Home() {
         <MovieReviewsSection />
         <HollywoodSection />
         <SportsLifeSection />
+        
         <ExclusivesSection />
         <TVSection />
         <KoreanSection />
