@@ -1,95 +1,168 @@
-import SectionHeader from "./SectionHeader"
-import ArticleCard from "./ArticleCard"
+"use client"
 
-const fashionArticles = [
-  {
-    title: "Kareena Kapoor Khan's airport look costs more than a luxury car; See price breakdown",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=400&fit=crop",
-    category: "FASHION",
-    timestamp: "1 hour ago"
-  },
-  {
-    title: "Alia Bhatt's casual chic style decoded: How to recreate her looks on budget",
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=300&fit=crop",
-    category: "FASHION",
-    timestamp: "2 hours ago"
-  },
-  {
-    title: "Ananya Panday stuns in ethnic wear; Her lehenga details revealed",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=300&fit=crop",
-    category: "FASHION",
-    timestamp: "3 hours ago"
-  }
-]
+import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import ExploreMore from "./ExploreMore"
 
-const sideArticles = [
-  {
-    title: "Priyanka Chopra's Paris Fashion Week outfits ranked; Which one is your favorite?",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=150&fit=crop",
-    timestamp: "1 hour ago"
+/* ------------------ DATA ------------------ */
+
+const celebrityStyleData = {
+  featured: {
+    title:
+      "Alia Bhatt turns heads in chic ivory saree worth ₹1.5 lakh; fans call her a fashion icon",
+    image:
+      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=900&h=600&fit=crop",
+    author: "Ayushi Agrawal",
   },
-  {
-    title: "5 fashion trends from Cannes 2024 you can try this summer",
-    image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=200&h=150&fit=crop",
-    timestamp: "2 hours ago"
+  list: [
+    {
+      title:
+        "Deepika Padukone’s airport look decoded: How to recreate her luxe travel style",
+      image:
+        "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?w=200&h=200&fit=crop",
+      author: "Ayushi Agrawal",
+    },
+    {
+      title:
+        "Kareena Kapoor Khan stuns in all-black ensemble at film screening",
+      image:
+        "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=200&h=200&fit=crop",
+      author: "Ayushi Agrawal",
+    },
+    {
+      title:
+        "Ranveer Singh’s bold fashion choices prove why he’s Bollywood’s trendsetter",
+      image:
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop",
+      author: "Ayushi Agrawal",
+    },
+  ],
+}
+
+const styleTipsData = {
+  featured: {
+    title:
+      "How to style monochrome outfits like a celebrity: Fashion expert shares tips",
+    image:
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&h=600&fit=crop",
+    author: "Style Desk",
   },
-  {
-    title: "Sonam Kapoor shares her fashion philosophy; Says comfort is key",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200&h=150&fit=crop",
-    timestamp: "3 hours ago"
-  },
-  {
-    title: "Janhvi Kapoor's gym wear brand collaboration announced; Details inside",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=150&fit=crop",
-    timestamp: "4 hours ago"
-  }
-]
+  list: [
+    {
+      title:
+        "5 wardrobe essentials every woman must own in 2026",
+      image:
+        "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&h=200&fit=crop",
+      author: "Style Desk",
+    },
+    {
+      title:
+        "How to dress smart-casual for work without looking boring",
+      image:
+        "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=200&h=200&fit=crop",
+      author: "Style Desk",
+    },
+    {
+      title:
+        "Styling hacks to make affordable outfits look luxury-approved",
+      image:
+        "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=200&h=200&fit=crop",
+      author: "Style Desk",
+    },
+  ],
+}
+
+/* ------------------ COMPONENT ------------------ */
 
 export default function FashionSection() {
+  const [activeTab, setActiveTab] = useState("celebrity")
+
+  const data =
+    activeTab === "celebrity" ? celebrityStyleData : styleTipsData
+
   return (
-    <section className="py-6 bg-[#ffffff]">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <SectionHeader title="Fashion" variant="red" />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main content */}
+    <section className="py-8 bg-white">
+      <div className="max-w-[1200px] mx-auto">
+        {/* Heading */}
+        <h2 className="text-[28px] font-bold text-black">Fashion</h2>
+
+        {/* Tabs */}
+        <div className="flex gap-6 mt-3 border-b">
+          <button
+            onClick={() => setActiveTab("celebrity")}
+            className={`pb-2 text-sm font-semibold uppercase ${
+              activeTab === "celebrity"
+                ? "text-blue-600 border-b-2 border-blue-600"
+                : "text-black"
+            }`}
+          >
+            Celebrity Style
+          </button>
+
+          <button
+            onClick={() => setActiveTab("tips")}
+            className={`pb-2 text-sm font-semibold uppercase ${
+              activeTab === "tips"
+                ? "text-blue-600 border-b-2 border-blue-600"
+                : "text-black"
+            }`}
+          >
+            Style Tips
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
+          {/* Featured */}
           <div className="lg:col-span-2">
-            <ArticleCard
-              title={fashionArticles[0].title}
-              image={fashionArticles[0].image}
-              category={fashionArticles[0].category}
-              timestamp={fashionArticles[0].timestamp}
-              variant="featured"
-            />
-            
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              {fashionArticles.slice(1).map((article, index) => (
-                <ArticleCard
-                  key={index}
-                  title={article.title}
-                  image={article.image}
-                  category={article.category}
-                  timestamp={article.timestamp}
-                  variant="grid"
+            <Link href="#" className="block">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src={data.featured.image}
+                  alt={data.featured.title}
+                  fill
+                  className="object-cover"
                 />
-              ))}
-            </div>
+              </div>
+
+              <h3 className="mt-4 text-[22px] font-bold leading-tight text-black">
+                {data.featured.title}
+              </h3>
+
+              <p className="mt-2 text-xs text-[#666] uppercase">
+                BY {data.featured.author}
+              </p>
+            </Link>
           </div>
-          
-          {/* Sidebar */}
-          <div className="space-y-4">
-            {sideArticles.map((article, index) => (
-              <ArticleCard
-                key={index}
-                title={article.title}
-                image={article.image}
-                timestamp={article.timestamp}
-                variant="horizontal"
-                showCategory={false}
-              />
+
+          {/* List */}
+          <div className="space-y-6">
+            {data.list.map((item, index) => (
+              <Link key={index} href="#" className="flex gap-4">
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-[15px] font-semibold leading-snug text-black line-clamp-3">
+                    {item.title}
+                  </h4>
+                  <p className="mt-1 text-[11px] text-[#666] uppercase">
+                    BY {item.author}
+                  </p>
+                </div>
+
+                <div className="relative w-[90px] h-[60px] flex-shrink-0">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
+
+        <ExploreMore />
       </div>
     </section>
   )

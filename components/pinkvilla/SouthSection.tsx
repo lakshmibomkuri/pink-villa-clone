@@ -1,5 +1,6 @@
-import SectionHeader from "./SectionHeader"
-import ArticleCard from "./ArticleCard"
+import Image from "next/image"
+import Link from "next/link"
+import ExploreMore from "./ExploreMore"
 
 const southArticles = [
   {
@@ -8,18 +9,6 @@ const southArticles = [
     category: "SOUTH",
     timestamp: "1 hour ago"
   },
-  {
-    title: "Allu Arjun's Pushpa 2 teaser creates history with record-breaking views in 24 hours",
-    image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&h=300&fit=crop",
-    category: "SOUTH",
-    timestamp: "2 hours ago"
-  },
-  {
-    title: "Vijay's upcoming film GOAT first look revealed; fans celebrate on social media",
-    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&h=300&fit=crop",
-    category: "SOUTH",
-    timestamp: "3 hours ago"
-  }
 ]
 
 const sideArticles = [
@@ -38,59 +27,87 @@ const sideArticles = [
     image: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=200&h=150&fit=crop",
     timestamp: "3 hours ago"
   },
-  {
-    title: "Nayanthara and Vignesh Shivan share family pictures from vacation",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=150&fit=crop",
-    timestamp: "4 hours ago"
-  }
 ]
-
 export default function SouthSection() {
   return (
-    <section className="py-6 bg-[#f8f8f8]">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <SectionHeader title="South" variant="red" />
-        
+    <section className="bg-white mt-5">
+      <div className="max-w-[1200px] mx-auto">
+        <h2 className="text-2xl font-bold mb-6 text-black">South</h2>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main content */}
-          <div className="lg:col-span-2">
-            <ArticleCard
-              title={southArticles[0].title}
-              image={southArticles[0].image}
-              category={southArticles[0].category}
-              timestamp={southArticles[0].timestamp}
-              variant="featured"
-            />
-            
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              {southArticles.slice(1).map((article, index) => (
-                <ArticleCard
-                  key={index}
-                  title={article.title}
-                  image={article.image}
-                  category={article.category}
-                  timestamp={article.timestamp}
-                  variant="grid"
-                />
-              ))}
-            </div>
-          </div>
           
-          {/* Sidebar */}
-          <div className="space-y-4">
-            {sideArticles.map((article, index) => (
-              <ArticleCard
-                key={index}
-                title={article.title}
-                image={article.image}
-                timestamp={article.timestamp}
-                variant="horizontal"
-                showCategory={false}
-              />
+          {/* MAIN CONTENT — EXACT image layout */}
+          <div className="lg:col-span-2 space-y-6">
+            
+            {/* Featured */}
+            <Link href="#" className="group block relative">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={southArticles[0].image}
+                  alt={southArticles[0].title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <span className="inline-block bg-[#ffde00] text-[#1a1a1a] text-[11px] font-bold px-2 py-0.5 mb-2">
+                    {southArticles[0].category}
+                  </span>
+                  <h3 className="text-[#ffffff] text-[18px] lg:text-[22px] font-bold leading-tight line-clamp-3">
+                    {southArticles[0].title}
+                  </h3>
+                  <span className="text-[#cccccc] text-[11px] mt-2 block">{southArticles[0].timestamp}</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Remaining stacked vertically */}
+            {southArticles.slice(1).map((article, index) => (
+              <Link key={index} href="#" className="group flex gap-3">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-[#1a1a1a] text-[13px] lg:text-[14px] font-semibold leading-tight line-clamp-3 transition-colors">
+                    {article.title}
+                  </h3>
+                  <span className="text-[#999999] text-[10px] mt-1 block">{article.timestamp}</span>
+                </div>
+                <div className="relative w-[120px] h-[80px] lg:w-[140px] lg:h-[90px] flex-shrink-0 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover transition-transform duration-300"
+                  />
+                </div>
+              </Link>
             ))}
           </div>
+
+          {/* SIDEBAR — untouched */}
+          <div className="space-y-4">
+            {sideArticles.map((article, index) => (
+              <Link key={index} href="#" className="group flex gap-3">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-[#1a1a1a] text-[13px] lg:text-[14px] font-semibold leading-tight line-clamp-3 transition-colors">
+                    {article.title}
+                  </h3>
+                  <span className="text-[#999999] text-[10px] mt-1 block">{article.timestamp}</span>
+                </div>
+                <div className="relative w-[120px] h-[80px] lg:w-[140px] lg:h-[90px] flex-shrink-0 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover transition-transform duration-300"
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
+
         </div>
+        <ExploreMore />
       </div>
     </section>
   )
 }
+
