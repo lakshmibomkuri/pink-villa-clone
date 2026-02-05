@@ -4,6 +4,7 @@ import ArticleContent from "@/components/pinkvilla/ArticleContent"
 import ArticleSidebar from "@/components/pinkvilla/ArticleSidebar"
 import Header from "@/components/pinkvilla/Header"
 
+
 export default function ArticlePage() {
   return (
     <div className="min-h-screen bg-[#ffffff]">
@@ -21,4 +22,4 @@ export default function ArticlePage() {
       <Footer />
     </div>
   )
-}
+} 

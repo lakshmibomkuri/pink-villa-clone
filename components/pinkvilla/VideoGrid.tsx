@@ -29,7 +29,7 @@ const videos = [
     title: "Behind the Scenes: Making of Dhurandhar's action sequences",
     thumbnail: "/placeholder.jpg",
     duration: "8:30",
-    views: "1.8M",
+    views: "1.8M",  
     timeAgo: "5 days ago",
     category: "BEHIND THE SCENES"
   },

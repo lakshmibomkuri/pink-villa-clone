@@ -9,7 +9,8 @@ export default function VideosPage() {
       <Header />
       <main>
         <VideoHero />
-        {/* <VideoGrid /> */}
+        {/* 
+         */}
       </main>
       <Footer />
     </div>
