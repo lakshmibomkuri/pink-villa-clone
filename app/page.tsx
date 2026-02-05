@@ -1,4 +1,3 @@
-import Header from "@/components/pinkvilla/Header"
 import LatestSection from "@/components/pinkvilla/LatestSection"
 import BollywoodSection from "@/components/pinkvilla/BollywoodSection"
 import SouthSection from "@/components/pinkvilla/SouthSection"
@@ -15,6 +14,7 @@ import BeautySection from "@/components/pinkvilla/BeautySection"
 import HealthSection from "@/components/pinkvilla/HealthSection"
 import YouMayLikeSection from "@/components/pinkvilla/YouMayLikeSection"
 import Footer from "@/components/pinkvilla/Footer"
+import Header from "@/components/pinkvilla/Header"
 
 export default function Home() {
   return (
