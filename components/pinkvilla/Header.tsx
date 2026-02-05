@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { Search, Menu, X, ChevronDown, Facebook, Instagram, Youtube } from "lucide-react"
 import { useState } from "react"
@@ -31,56 +32,348 @@ const navItems = [
   { 
     label: "Entertainment", 
     href: "#",
-    submenu: [
-      { label: "South", items: [] },
-      { label: "Hollywood", items: [] },
-      { label: "TV", items: [] },
-      { label: "Anime", items: [] },
-      { label: "Movie Review", items: [] },
-      { label: "Exclusive", items: [] },
-      { label: "Explore All", items: [] }
-    ]
+    megaMenu: {
+      categories: [
+        { label: "South", href: "#" },
+        { label: "Hollywood", href: "#" },
+        { label: "TV", href: "#" },
+        { label: "Explore All", href: "#" }
+      ],
+      articles: [
+        {
+          title: "Latest South Indian Movie Reviews and Box Office Updates",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Hollywood Blockbusters: What to Watch This Weekend",
+          image: "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=150&h=100&fit=crop"
+        },
+        {
+          title: "TV Series Recommendations: Binge-Worthy Shows",
+          image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Anime Updates: Latest Episodes and Movie Releases",
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Movie Reviews: Critics Choice and Audience Favorites",
+          image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Exclusive Interviews with Directors and Actors",
+          image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Behind the Scenes: Movie Making Secrets",
+          image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Entertainment News: Celebrity Updates and Gossip",
+          image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Film Festival Coverage: Award Season Updates",
+          image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=150&h=100&fit=crop"
+        }
+      ]
+    }
   },
-  { label: "Cinema", href: "#" },
+  { label: "Cinema", href: "#", megaMenu: {
+      categories: [
+        { label: "Movie Reviews", href: "#" },
+        { label: "Film Analysis", href: "#" },
+        { label: "Director Spotlights", href: "#" },
+        { label: "Explore All", href: "#" }
+      ],
+      articles: [
+        {
+          title: "In-Depth Movie Review: Latest Blockbuster Analysis",
+          image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Cinematography Masterclass: Visual Storytelling",
+          image: "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Director's Vision: Behind the Camera Insights",
+          image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Film Festival Highlights: Award-Winning Cinema",
+          image: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Genre Evolution: How Cinema is Changing",
+          image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Acting Performances: Standout Roles of the Year",
+          image: "https://images.unsplash.com/photo-1517602302552-471fe67acf66?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Technical Excellence: Sound Design and Music",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=100&fit=crop"
+        },
+        {
+          title: "International Cinema: Global Film Trends",
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Classic Cinema Revisited: Timeless Masterpieces",
+          image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=150&h=100&fit=crop"
+        }
+      ]
+    }
+  },
   { 
     label: "Korean", 
     href: "#",
-    submenu: [
-      { label: "Music", items: [] },
-      { label: "TV Serials", items: [] },
-      { label: "Updates", items: [] },
-      { label: "Explore All", items: [] }
-    ]
+    megaMenu: {
+      categories: [
+        { label: "K-Pop Music", href: "#" },
+        { label: "K-Dramas", href: "#" },
+        { label: "Korean Movies", href: "#" },
+        { label: "Explore All", href: "#" }
+      ],
+      articles: [
+        {
+          title: "BTS Latest Album: Breaking Records Worldwide",
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Top K-Dramas of 2024: Must-Watch Series",
+          image: "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Korean Cinema: International Recognition and Awards",
+          image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=150&h=100&fit=crop"
+        },
+        {
+          title: "K-Pop Fashion Trends: Style Inspiration from Idols",
+          image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Korean Beauty Secrets: Skincare and Makeup Tips",
+          image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Hallyu Wave: Korean Culture's Global Impact",
+          image: "https://images.unsplash.com/photo-1517602302552-471fe67acf66?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Korean Food Culture: From Street Food to Fine Dining",
+          image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=150&h=100&fit=crop"
+        },
+        {
+          title: "K-Pop Concerts: Live Performance Experiences",
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Korean Language Learning: Tips for Beginners",
+          image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=150&h=100&fit=crop"
+        }
+      ]
+    }
   },
   { 
     label: "Lifestyle", 
-    href: "#",
-    submenu: [
-      { label: "Love & Relationship", items: [] },
-      { label: "Food & Travel", items: [] },
-      { label: "Explore All", items: [] }
-    ]
+    href: "/lifestyle",
+    megaMenu: {
+      categories: [
+        { label: "Love & Relationships", href: "#" },
+        { label: "Food & Travel", href: "#" },
+        { label: "Home & Decor", href: "#" },
+        { label: "Explore All", href: "#" }
+      ],
+      articles: [
+        {
+          title: "Inside Saumya Tandon's Mumbai home: European, pastel tones, lucky Dhurandhar corner and old world charm",
+          image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Winter Pet Care Made Easy with Amazon Everyday Essentials",
+          image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Inside Neil Nitin Mukesh's 2BHK Mumbai House: No paint, artistic and vaastu-perfect space filled with memories",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Weekly Horoscope September 16-22: Sagittarius, Capricorn, Aquarius, and Pisces - Munisha Khatwani reveals tarot and angel messages",
+          image: "https://images.unsplash.com/photo-1518837167922-ddd27525d352?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Healthy Morning Routines: Celebrity Wellness Secrets",
+          image: "https://images.unsplash.com/photo-1506629905607-d405b7a30db4?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Travel Guide: Best Destinations for Winter Vacation",
+          image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Home Decor Trends 2024: Celebrity Interior Design Ideas",
+          image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Relationship Advice: Building Strong Connections",
+          image: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Wellness Wednesday: Mental Health and Self-Care Tips",
+          image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=150&h=100&fit=crop"
+        }
+      ]
+    }
   },
-  { label: "Sports Life", href: "#" },
+  { label: "Sports Life", href: "#", megaMenu: {
+      categories: [
+        { label: "Cricket Updates", href: "#" },
+        { label: "Football News", href: "#" },
+        { label: "Sports Fashion", href: "#" },
+        { label: "Explore All", href: "#" }
+      ],
+      articles: [
+        {
+          title: "Cricket World Cup: Team Analysis and Predictions",
+          image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Football Transfer News: Major League Updates",
+          image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Olympic Games: Athletes to Watch This Season",
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Sports Fashion: Athletic Wear Trends 2024",
+          image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Fitness Motivation: Celebrity Workout Routines",
+          image: "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Sports Nutrition: Diet Plans for Athletes",
+          image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Adventure Sports: Extreme Activities and Safety",
+          image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Sports Technology: Latest Equipment and Gadgets",
+          image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Women in Sports: Breaking Barriers and Records",
+          image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=100&fit=crop"
+        }
+      ]
+    }
+  },
   { 
     label: "Beauty", 
     href: "#",
-    submenu: [
-      { label: "Makeup", items: [] },
-      { label: "Explore All", items: [] }
-    ]
+    megaMenu: {
+      categories: [
+        { label: "Makeup Tutorials", href: "#" },
+        { label: "Skincare Routines", href: "#" },
+        { label: "Product Reviews", href: "#" },
+        { label: "Explore All", href: "#" }
+      ],
+      articles: [
+        {
+          title: "Celebrity Makeup Artist Reveals Red Carpet Secrets",
+          image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Korean Skincare Routine: 10-Step Guide to Glowing Skin",
+          image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Makeup Trends 2024: Bold Colors and Natural Looks",
+          image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=150&h=100&fit=crop"
+        },
+        {
+          title: "DIY Beauty Masks: Natural Ingredients for Home Care",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Hair Care Secrets: Celebrity Hairstylist Tips",
+          image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Nail Art Trends: Creative Designs and Techniques",
+          image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Anti-Aging Solutions: Effective Treatments and Products",
+          image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Bridal Beauty: Wedding Makeup and Skincare Guide",
+          image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Men's Grooming: Essential Products and Routines",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=100&fit=crop"
+        }
+      ]
+    }
   },
   { 
     label: "Fashion", 
     href: "#",
-    submenu: [
-      { label: "Celebrity Style", items: [] },
-      { label: "Explore All", items: [] }
-    ]
+    megaMenu: {
+      categories: [
+        { label: "Celebrity Style", href: "#" },
+        { label: "Street Fashion", href: "#" },
+        { label: "Designer Collections", href: "#" },
+        { label: "Explore All", href: "#" }
+      ],
+      articles: [
+        {
+          title: "Fashion Week 2024: Top Designer Collections and Trends",
+          image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Celebrity Red Carpet Looks: Best Dressed of the Month",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Sustainable Fashion: Eco-Friendly Brands to Watch",
+          image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Street Style Inspiration: Fashion from Around the World",
+          image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Seasonal Wardrobe: Must-Have Pieces for Every Closet",
+          image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Fashion Accessories: Statement Pieces and Styling Tips",
+          image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Vintage Fashion Revival: Retro Trends Making Comeback",
+          image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Fashion Photography: Behind the Scenes of Photo Shoots",
+          image: "https://images.unsplash.com/photo-1506629905607-d405b7a30db4?w=150&h=100&fit=crop"
+        },
+        {
+          title: "Budget Fashion: High-End Looks for Less Money",
+          image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=150&h=100&fit=crop"
+        }
+      ]
+    }
   }
 ]
-
-
 
 const footerLinks = [
   "Privacy Policy",
@@ -116,9 +409,9 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-[#ffffff]">
+    <header className="sticky top-0 z-50 bg-[#ffffff] border-b border-[#e5e5e5]">
       {/* Top bar */}
-      <div className="border-b border-[#e5e5e5]">
+      <div className="">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="flex items-center justify-between h-[50px]">
             {/* Logo - always on left */}
@@ -130,19 +423,63 @@ export default function Header() {
               </svg>
             </Link>
 
-            {/* Navigation links with dropdowns - responsive for tablets */}
-            <nav className="hidden sm:flex items-center gap-2 md:gap-3 lg:gap-5 ml-2 md:ml-4 lg:ml-8 flex-wrap">
+            {/* Navigation links with dropdowns */}
+            <nav className="hidden sm:flex items-center gap-2 md:gap-3 lg:gap-5 ml-2 md:ml-4 lg:ml-8">
               {navItems.map((item) => (
                 <div key={item.label} className="relative group">
                   <Link
                     href={item.href}
-                    className="text-[10px] md:text-[11px] lg:text-[12px] text-[#333333] hover:text-[#e31837] transition-colors flex items-center gap-1 whitespace-nowrap"
+                    className="text-[10px] md:text-[11px] lg:text-[16px] text-[#333333] hover:text-[#e31837] transition-colors flex items-center gap-1 whitespace-nowrap"
                   >
                     {item.label}
                     {item.submenu && <ChevronDown className="h-3 w-3" />}
                   </Link>
+                  {/* Desktop mega menu - hidden on mobile/tablet */}
+                  {item.megaMenu && (
+                    <div className="hidden lg:block fixed left-0 right-0 bg-white shadow-lg border-b border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div className="max-w-6xl mx-auto flex">
+                        {/* Left sidebar with categories */}
+                        <div className="w-64 bg-gray-50 p-6">
+                          <div className="text-blue-600 text-sm font-medium mb-4">Explore All {item.label} Categories</div>
+                          {item.megaMenu.categories.map((category) => (
+                            <Link
+                              key={category.label}
+                              href={category.href}
+                              className="block py-3 text-sm text-gray-700 hover:text-red-600 border-b border-gray-200 last:border-b-0"
+                            >
+                              {category.label}
+                            </Link>
+                          ))}
+                        </div>
+                        
+                        {/* Right content with articles */}
+                        <div className="flex-1 p-6">
+                          <div className="grid grid-cols-3 gap-6">
+                            {item.megaMenu.articles.map((article, index) => (
+                              <Link key={index} href="#" className="flex gap-3 group/article">
+                                <div className="relative w-20 h-14 flex-shrink-0 overflow-hidden rounded">
+                                  <Image
+                                    src={article.image}
+                                    alt={article.title}
+                                    fill
+                                    className="object-cover"
+                                  />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <h4 className="text-sm font-medium leading-tight line-clamp-3 group-hover/article:text-red-600">
+                                    {article.title}
+                                  </h4>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {/* Box Office and other dropdowns */}
                   {item.submenu && (
-                    <div className="absolute top-full left-0 bg-white shadow-lg border border-gray-200 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-[49px] left-0 bg-white shadow-lg border border-gray-200 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       {item.submenu.map((subItem) => (
                         <div key={subItem.label} className="relative group/sub">
                           <Link
@@ -171,7 +508,7 @@ export default function Header() {
                 </div>
               ))}
             </nav>
-
+            
             {/* Hamburger menu - always on right */}
             <button 
               className="p-1" 
@@ -180,12 +517,13 @@ export default function Header() {
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
+            
           </div>
         </div>
       </div>
 
       {/* Mobile navigation bar */}
-      <div className="sm:hidden border-b border-[#e5e5e5] bg-[#ffffff]">
+      <div className="sm:hidden bg-[#ffffff]">
         <div className="px-2">
           <nav className="flex items-start gap-3 h-[40px] overflow-x-auto scrollbar-hide pb-2">
             {navItems.map((item) => (
@@ -201,14 +539,12 @@ export default function Header() {
         </div>
       </div>
 
-
-
       {/* Hamburger menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50">
           {/* Backdrop */}
           <div 
-            className="absolute inset-0 bg-black bg-opacity-50" 
+            className="absolute inset-0 bg-[#00000063] bg-opacity-50" 
             onClick={() => setMobileMenuOpen(false)}
           />
           

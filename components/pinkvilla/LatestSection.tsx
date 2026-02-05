@@ -64,7 +64,7 @@ const rowThreeArticles = [
     image: "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9"
   },
   {
-    title: "Lewis Hamilton and Kim Kardashian’s Relationship Timeline",
+    title: "Lewis Hamilton and Kim Kardashian's Relationship Timeline",
     image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353"
   }
 ]
@@ -72,15 +72,15 @@ const rowThreeArticles = [
 const LatestSection = () => {
   return (
     <section className="max-w-[1200px] mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
 
         {/* LEFT SIDE */}
-        <div className="lg:col-span-8 space-y-6">
+        <div className="lg:col-span-8 space-y-4 sm:space-y-6">
 
-          {/* ROW 1 – TOP STORY (TWO IMAGES, SINGLE CARD, TITLE SPANNING BOTH) */}
+          {/* ROW 1 – TOP STORY */}
           <Link
             href="#"
-            className="block relative group h-[420px] rounded-md overflow-hidden shadow-md"
+            className="block relative group h-[300px] sm:h-[350px] lg:h-[420px] rounded-md overflow-hidden shadow-md"
             aria-label="Top Story: Yami Gautam set to make a cameo"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 h-full gap-0.5">
@@ -107,12 +107,12 @@ const LatestSection = () => {
             </div>
 
             {/* Overlay title + author spanning full card */}
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-              <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-sm inline-block mb-2 select-none">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-5">
+              <span className="bg-red-600 text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-sm inline-block mb-2 select-none">
                 TOP STORIES
               </span>
-              <h2 className="text-white text-2xl font-bold leading-snug">
-                EXCLUSIVE: Yami Gautam set to make a cameo in Aditya Dhar’s upcoming film
+              <h2 className="text-white text-lg sm:text-xl lg:text-2xl font-bold leading-snug">
+                EXCLUSIVE: Yami Gautam set to make a cameo in Aditya Dhar's upcoming film
               </h2>
               <p className="text-gray-300 text-xs mt-1 select-none">
                 BY KHUSHBOO RASTA
@@ -121,7 +121,7 @@ const LatestSection = () => {
           </Link>
 
           {/* ROW 2 – 4 UNIQUE CARDS */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
             {rowTwoArticles.map((item, index) => (
               <div key={index}>
                 <Image
@@ -129,9 +129,9 @@ const LatestSection = () => {
                   alt={item.title}
                   width={300}
                   height={200}
-                  className="w-full h-40 object-cover rounded-md"
+                  className="w-full h-32 sm:h-36 lg:h-40 object-cover rounded-md"
                 />
-                <h4 className="mt-2 text-sm font-semibold leading-snug">
+                <h4 className="mt-2 text-xs sm:text-sm font-semibold leading-snug">
                   {item.title}
                 </h4>
               </div>
@@ -139,7 +139,7 @@ const LatestSection = () => {
           </div>
 
           {/* ROW 3 – 3 UNIQUE CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
             {rowThreeArticles.map((item, index) => (
               <div key={index}>
                 <Image
@@ -147,9 +147,9 @@ const LatestSection = () => {
                   alt={item.title}
                   width={400}
                   height={260}
-                  className="w-full h-48 object-cover rounded-md"
+                  className="w-full h-40 sm:h-44 lg:h-48 object-cover rounded-md"
                 />
-                <h4 className="mt-2 text-sm font-semibold leading-snug">
+                <h4 className="mt-2 text-xs sm:text-sm font-semibold leading-snug">
                   {item.title}
                 </h4>
               </div>
@@ -157,17 +157,17 @@ const LatestSection = () => {
           </div>
         </div>
 
-      {/* RIGHT SIDE – LATEST (border only wraps content) */}
+      {/* RIGHT SIDE – LATEST */}
 <aside className="lg:col-span-4">
   <div className="border border-gray-200 bg-white rounded-md overflow-hidden">
-    <h3 className="px-4 py-3 border-b text-lg font-bold">
+    <h3 className="px-3 sm:px-4 py-3 border-b text-base sm:text-lg font-bold">
       Latest
     </h3>
 
     <div className="divide-y divide-gray-200">
       {latestItems.map((item, index) => (
-        <div key={index} className="flex gap-3 px-4 py-4">
-          <span className="text-red-600 font-bold select-none">
+        <div key={index} className="flex gap-2 sm:gap-3 px-3 sm:px-4 py-3 sm:py-4">
+          <span className="text-red-600 font-bold select-none text-sm">
             {index + 1}
           </span>
 
@@ -176,11 +176,11 @@ const LatestSection = () => {
             alt={item.title}
             width={64}
             height={48}
-            className="object-cover rounded-sm"
+            className="w-12 h-9 sm:w-16 sm:h-12 object-cover rounded-sm flex-shrink-0"
           />
 
-          <div>
-            <p className="text-sm font-semibold leading-snug">
+          <div className="min-w-0 flex-1">
+            <p className="text-xs sm:text-sm font-semibold leading-snug">
               {item.title}
             </p>
             <p className="text-xs text-gray-500 mt-1 select-none">
@@ -191,8 +191,8 @@ const LatestSection = () => {
       ))}
     </div>
 
-    <div className="p-4">
-      <button className="w-full border border-gray-300 py-2 text-sm font-semibold hover:bg-gray-100 rounded-md">
+    <div className="p-3 sm:p-4">
+      <button className="w-full border border-gray-300 py-2 text-xs sm:text-sm font-semibold hover:bg-gray-100 rounded-md">
         EXPLORE MORE →
       </button>
     </div>

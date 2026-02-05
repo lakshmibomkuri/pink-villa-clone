@@ -52,26 +52,26 @@ export default function ArticleCard({
   if (variant === "horizontal") {
     return (
       <Link href={href} className="group flex gap-3">
-        <div className="relative w-[120px] h-[80px] lg:w-[140px] lg:h-[90px] flex-shrink-0 overflow-hidden">
-          <Image
-            src={image || "/placeholder.svg"}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
         <div className="flex-1 min-w-0">
           {showCategory && category && (
             <span className="text-[#e31837] text-[10px] font-semibold uppercase tracking-wide">
               {category}
             </span>
           )}
-          <h3 className="text-[#1a1a1a] text-[13px] lg:text-[14px] font-semibold leading-tight line-clamp-3 group-hover:text-[#e31837] transition-colors">
+          <h3 className="text-[#1a1a1a] text-[13px] lg:text-[14px] font-semibold leading-tight line-clamp-3 transition-colors">
             {title}
           </h3>
           {timestamp && (
             <span className="text-[#999999] text-[10px] mt-1 block">{timestamp}</span>
           )}
+        </div>
+        <div className="relative w-[120px] h-[80px] lg:w-[140px] lg:h-[90px] flex-shrink-0 overflow-hidden">
+          <Image
+            src={image || "/placeholder.svg"}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-300"
+          />
         </div>
       </Link>
     )

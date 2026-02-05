@@ -1,95 +1,111 @@
-import SectionHeader from "./SectionHeader"
-import ArticleCard from "./ArticleCard"
+"use client"
 
-const beautyArticles = [
-  {
-    title: "Katrina Kaif reveals her skincare secrets for flawless skin at 40; Beauty routine exposed",
-    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop",
-    category: "BEAUTY",
-    timestamp: "1 hour ago"
-  },
-  {
-    title: "5 monsoon skincare tips every Indian woman should follow; Dermatologist approved",
-    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop",
-    category: "BEAUTY",
-    timestamp: "2 hours ago"
-  },
-  {
-    title: "Deepika Padukone's go-to lipstick shades that you can buy under Rs 500",
-    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=300&fit=crop",
-    category: "BEAUTY",
-    timestamp: "3 hours ago"
-  }
-]
+import Image from "next/image"
+import Link from "next/link"
+import ExploreMore from "./ExploreMore"
 
-const sideArticles = [
-  {
-    title: "Alia Bhatt's makeup artist shares tips for achieving her dewy look",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=150&fit=crop",
-    timestamp: "1 hour ago"
+/* ------------------ DATA ------------------ */
+
+const beautyData = {
+  featured: {
+    title:
+      "Alia Bhatt’s glowing skin secret revealed: Dermatologist-approved routine decoded",
+    image:
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&h=600&fit=crop",
+    author: "Beauty Desk",
   },
-  {
-    title: "Best sunscreens for Indian skin types recommended by experts",
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=150&fit=crop",
-    timestamp: "2 hours ago"
-  },
-  {
-    title: "Hair care mistakes you're making in monsoon; Expert tips to fix them",
-    image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=200&h=150&fit=crop",
-    timestamp: "3 hours ago"
-  },
-  {
-    title: "Kiara Advani's bridal skincare routine revealed; Pre-wedding tips",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=150&fit=crop",
-    timestamp: "4 hours ago"
-  }
-]
+  list: [
+    {
+      title:
+        "5 Korean skincare steps you should never skip for glass skin",
+      image:
+        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=200&h=200&fit=crop",
+      author: "Beauty Desk",
+    },
+    {
+      title:
+        "Deepika Padukone’s makeup artist shares tips for flawless red carpet looks",
+      image:
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop",
+      author: "Beauty Desk",
+    },
+    {
+      title:
+        "Hair care mistakes you must avoid if you want long, healthy hair",
+      image:
+        "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=200&h=200&fit=crop",
+      author: "Beauty Desk",
+    },
+  ],
+}
+
+/* ------------------ COMPONENT ------------------ */
 
 export default function BeautySection() {
   return (
-    <section className="py-6 bg-[#f8f8f8]">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <SectionHeader title="Beauty" variant="red" />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main content */}
+    <section className="py-8 bg-white">
+      <div className="max-w-[1200px] mx-auto">
+        {/* Heading */}
+        <h2 className="text-[28px] font-bold text-black">Beauty</h2>
+
+        {/* Single Tab (for consistency) */}
+        <div className="flex gap-6 mt-3 border-b">
+          <span className="pb-2 text-sm font-semibold uppercase text-blue-600 border-b-2 border-blue-600">
+            Beauty
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
+          {/* Featured */}
           <div className="lg:col-span-2">
-            <ArticleCard
-              title={beautyArticles[0].title}
-              image={beautyArticles[0].image}
-              category={beautyArticles[0].category}
-              timestamp={beautyArticles[0].timestamp}
-              variant="featured"
-            />
-            
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              {beautyArticles.slice(1).map((article, index) => (
-                <ArticleCard
-                  key={index}
-                  title={article.title}
-                  image={article.image}
-                  category={article.category}
-                  timestamp={article.timestamp}
-                  variant="grid"
+            <Link href="#" className="block">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src={beautyData.featured.image}
+                  alt={beautyData.featured.title}
+                  fill
+                  className="object-cover"
                 />
-              ))}
-            </div>
+              </div>
+
+              <h3 className="mt-4 text-[22px] font-bold leading-tight text-black">
+                {beautyData.featured.title}
+              </h3>
+
+              <p className="mt-2 text-xs text-[#666] uppercase">
+                BY {beautyData.featured.author}
+              </p>
+            </Link>
           </div>
-          
-          {/* Sidebar */}
-          <div className="space-y-4">
-            {sideArticles.map((article, index) => (
-              <ArticleCard
-                key={index}
-                title={article.title}
-                image={article.image}
-                timestamp={article.timestamp}
-                variant="horizontal"
-                showCategory={false}
-              />
+
+          {/* Right List */}
+          <div className="space-y-6">
+            {beautyData.list.map((item, index) => (
+              <Link key={index} href="#" className="flex gap-4">
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-[15px] font-semibold leading-snug text-black line-clamp-3">
+                    {item.title}
+                  </h4>
+                  <p className="mt-1 text-[11px] text-[#666] uppercase">
+                    BY {item.author}
+                  </p>
+                </div>
+
+                <div className="relative w-[90px] h-[60px] flex-shrink-0">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
+
+        <ExploreMore />
       </div>
     </section>
   )

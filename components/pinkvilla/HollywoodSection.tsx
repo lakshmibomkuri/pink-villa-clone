@@ -1,5 +1,6 @@
-import SectionHeader from "./SectionHeader"
-import ArticleCard from "./ArticleCard"
+import Image from "next/image"
+import Link from "next/link"
+import ExploreMore from "./ExploreMore"
 
 const hollywoodArticles = [
   {
@@ -8,18 +9,6 @@ const hollywoodArticles = [
     category: "HOLLYWOOD",
     timestamp: "1 hour ago"
   },
-  {
-    title: "Tom Cruise shares BTS from Mission Impossible 8; Performs death-defying stunts",
-    image: "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&h=300&fit=crop",
-    category: "HOLLYWOOD",
-    timestamp: "2 hours ago"
-  },
-  {
-    title: "Zendaya and Tom Holland's wedding rumors spark social media frenzy",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=300&fit=crop",
-    category: "HOLLYWOOD",
-    timestamp: "3 hours ago"
-  }
 ]
 
 const sideArticles = [
@@ -47,49 +36,82 @@ const sideArticles = [
 
 export default function HollywoodSection() {
   return (
-    <section className="py-6 bg-[#f8f8f8]">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <SectionHeader title="Hollywood" variant="red" />
-        
+    <section className="bg-white mt-5">
+      <div className="max-w-[1200px] mx-auto">
+        <h2 className="text-2xl font-bold mb-6 text-black">Bollywood</h2>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main content */}
-          <div className="lg:col-span-2">
-            <ArticleCard
-              title={hollywoodArticles[0].title}
-              image={hollywoodArticles[0].image}
-              category={hollywoodArticles[0].category}
-              timestamp={hollywoodArticles[0].timestamp}
-              variant="featured"
-            />
-            
-            <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="lg:col-span-2 space-y-4">
+            <Link href="#" className="group block relative">
+              <div className="grid grid-cols-3 gap-1 rounded-md overflow-hidden shadow-md">
+                <div className="relative col-span-2">
+                  <Image src={hollywoodArticles[0].image} alt={hollywoodArticles[0].title} fill className="object-cover" priority />
+                </div>
+                <div className="relative col-span-1 h-[220px]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop"
+                    alt={hollywoodArticles[0].title + " secondary"}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+              <h3 className="mt-3 text-xl font-semibold leading-snug">{hollywoodArticles[0].title}</h3>
+              <p className="text-xs text-gray-400 mt-1 select-none">{hollywoodArticles[0].category}</p>
+              <p className="text-xs text-gray-500 mt-1 select-none">{hollywoodArticles[0].timestamp}</p>
+            </Link>
+
+            <div className="grid grid-cols-2 gap-4">
               {hollywoodArticles.slice(1).map((article, index) => (
-                <ArticleCard
-                  key={index}
-                  title={article.title}
-                  image={article.image}
-                  category={article.category}
-                  timestamp={article.timestamp}
-                  variant="grid"
-                />
+                <Link key={index} href="#" className="group block">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <span className="text-[#e31837] text-[10px] font-semibold uppercase tracking-wide">
+                      {article.category}
+                    </span>
+                    <h3 className="text-[#1a1a1a] text-[13px] lg:text-[14px] font-semibold leading-tight line-clamp-2 group-hover:text-[#e31837] transition-colors mt-1">
+                      {article.title}
+                    </h3>
+                    <span className="text-[#999999] text-[10px] mt-1 block">{article.timestamp}</span>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
-          
+
           {/* Sidebar */}
           <div className="space-y-4">
             {sideArticles.map((article, index) => (
-              <ArticleCard
-                key={index}
-                title={article.title}
-                image={article.image}
-                timestamp={article.timestamp}
-                variant="horizontal"
-                showCategory={false}
-              />
+              <Link key={index} href="#" className="group flex gap-3">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-[#1a1a1a] text-[13px] lg:text-[14px] font-semibold leading-tight line-clamp-3 transition-colors">
+                    {article.title}
+                  </h3>
+                  <span className="text-[#999999] text-[10px] mt-1 block">{article.timestamp}</span>
+                </div>
+                <div className="relative w-[120px] h-[80px] lg:w-[140px] lg:h-[90px] flex-shrink-0 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover transition-transform duration-300"
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
+
+        <ExploreMore />
       </div>
     </section>
   )
