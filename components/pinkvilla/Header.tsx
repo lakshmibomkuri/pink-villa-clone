@@ -413,14 +413,24 @@ export default function Header() {
       {/* Top bar */}
       <div className="">
         <div className="max-w-[1200px] mx-auto px-4">
-          <div className="flex items-center justify-between h-[50px]">
+          <div className="flex items-center h-[50px]">
+            
             {/* Logo - always on left */}
             <Link href="/" className="flex items-center">
+             {/* Hamburger menu - always on right */}
+             <button 
+              className="p-1" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
               <svg viewBox="0 0 150 30" className="h-6 w-auto">
                 <text x="0" y="24" fill="#e31837" fontWeight="bold" fontSize="24" fontFamily="Arial, sans-serif">
                   PINKVILLA
                 </text>
               </svg>
+              
             </Link>
 
             {/* Navigation links with dropdowns */}
@@ -509,14 +519,7 @@ export default function Header() {
               ))}
             </nav>
             
-            {/* Hamburger menu - always on right */}
-            <button 
-              className="p-1" 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+           
             
           </div>
         </div>

@@ -32,7 +32,17 @@ const latestItems: LatestItem[] = [
     title: "R Madhavan breaks silence on acting hiatus",
     author: "GOUTHAM S",
     image: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7"
-  }
+  },
+  {
+    title: "5 Tamil and Telugu Films to Watch in Theaters This Week",
+    author: "GOUTHAM S",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9"
+  },
+  {
+    title: "Fact Check: Did Taylor Swift secretly arrive at Grammys?",
+    author: "AYUSHI AGRAWAL",
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+  },
 ]
 
 const rowTwoArticles = [
