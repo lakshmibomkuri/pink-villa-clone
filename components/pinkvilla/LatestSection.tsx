@@ -71,6 +71,7 @@ export default function LatestSection() {
               category={latestArticles[0].category}
               timestamp={latestArticles[0].timestamp}
               variant="featured"
+              href="/article"
             />
             
             {/* Grid of smaller articles below */}
@@ -83,6 +84,7 @@ export default function LatestSection() {
                   category={article.category}
                   timestamp={article.timestamp}
                   variant="grid"
+                  href="/article"
                 />
               ))}
             </div>
@@ -98,6 +100,7 @@ export default function LatestSection() {
                 timestamp={article.timestamp}
                 variant="horizontal"
                 showCategory={false}
+                href="/article"
               />
             ))}
           </div>

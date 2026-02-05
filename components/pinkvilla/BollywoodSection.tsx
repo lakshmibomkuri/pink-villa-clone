@@ -60,6 +60,7 @@ export default function BollywoodSection() {
               category={bollywoodArticles[0].category}
               timestamp={bollywoodArticles[0].timestamp}
               variant="featured"
+              href="/article"
             />
             
             <div className="grid grid-cols-2 gap-4 mt-4">
@@ -71,6 +72,7 @@ export default function BollywoodSection() {
                   category={article.category}
                   timestamp={article.timestamp}
                   variant="grid"
+                  href="/article"
                 />
               ))}
             </div>
@@ -86,6 +88,7 @@ export default function BollywoodSection() {
                 timestamp={article.timestamp}
                 variant="horizontal"
                 showCategory={false}
+                href="/article"
               />
             ))}
           </div>

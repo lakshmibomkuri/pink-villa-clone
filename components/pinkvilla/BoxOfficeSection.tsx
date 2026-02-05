@@ -60,6 +60,7 @@ export default function BoxOfficeSection() {
                   timestamp={article.timestamp}
                   variant="grid"
                   showCategory={false}
+                  href="/article"
                 />
               ))}
             </div>
@@ -75,6 +76,7 @@ export default function BoxOfficeSection() {
                 timestamp={article.timestamp}
                 variant="horizontal"
                 showCategory={false}
+                href="/article"
               />
             ))}
           </div>

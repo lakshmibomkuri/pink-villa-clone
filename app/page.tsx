@@ -1,4 +1,3 @@
-import Header from "@/components/pinkvilla/Header"
 import LatestSection from "@/components/pinkvilla/LatestSection"
 import BollywoodSection from "@/components/pinkvilla/BollywoodSection"
 import SouthSection from "@/components/pinkvilla/SouthSection"
@@ -18,17 +17,16 @@ import Footer from "@/components/pinkvilla/Footer"
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#ffffff]">
-      <Header />
       <main>
         <LatestSection />
         <BollywoodSection />
-        <SouthSection />
+        <SouthSection /> 
         <BoxOfficeSection />
         <ExclusiveVideosSection />
         <MovieReviewsSection />
         <HollywoodSection />
         <SportsLifeSection />
-        
+
         <ExclusivesSection />
         <TVSection />
         <KoreanSection />
