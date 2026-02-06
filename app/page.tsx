@@ -20,12 +20,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      <main className="flex flex-1 max-w-[1200px] mx-auto gap-2 mt-4 px-4">
-        {/* Left Advertisement */}
-        <aside className="hidden xl:block w-32 sticky top-20 h-fit">
-          <div className="p-4 text-center text-gray-500 text-xs rounded">Advertisement</div>
-        </aside>
-
+      <main className="flex flex-1 max-w-[1200px] mx-auto gap-2 mt-4 lg:px-6 px-2">
         {/* Main Content - scrollable */}
         <section className="flex-1 min-w-0">
           <LatestSection />
@@ -44,11 +39,6 @@ export default function Home() {
           <HealthSection />
           <YouMayLikeSection />
         </section>
-
-        {/* Right Advertisement */}
-        <aside className="hidden xl:block w-32 sticky top-20 h-fit">
-          <div className="p-4 text-center text-gray-500 text-xs rounded">Advertisement</div>
-        </aside>
       </main>
       <Footer />
     </div>

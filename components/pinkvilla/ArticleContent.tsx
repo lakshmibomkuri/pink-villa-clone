@@ -27,13 +27,13 @@ export default function ArticleContent() {
       </p>
 
       {/* Author and Meta Info */}
-      <div className="flex items-center justify-between border-b border-gray-200 pb-4">
-        <div className="flex items-center gap-4 text-sm text-gray-600">
-          <span>By <Link href="/author/goutham-s" className="text-gray-800 hover:text-[#e31837] hover:underline">GOUTHAM S</Link></span>
-          <span>Published on Feb 04, 2026 | 01:28 PM IST | ⏱ 31K</span>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-200 pb-4 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600">
+          <span>By <Link href="/author" className="text-gray-800 hover:text-[#e31837] hover:underline">GOUTHAM S</Link></span>
+          <span className="text-xs sm:text-sm">Published on Feb 04, 2026 | 01:28 PM IST | ⏱ 31K</span>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button className="p-2 bg-blue-600 text-white rounded">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0 0 2h1v10a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9h1a1 1 0 0 0 0-2zM10 6a2 2 0 0 1 4 0v1h-4V6zm6 13a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9h8v10z"/>
@@ -42,14 +42,14 @@ export default function ArticleContent() {
           <button className="p-2 border border-gray-300 rounded hover:bg-gray-50">
             <Share2 className="w-4 h-4" />
           </button>
-          <button className="bg-green-500 text-white px-4 py-2 rounded text-sm font-medium">
+          <button className="bg-green-500 text-white px-3 sm:px-4 py-2 rounded text-xs sm:text-sm font-medium">
             📱 JOIN US
           </button>
         </div>
       </div>
 
       {/* Featured Image */}
-      <div className="relative aspect-video w-full overflow-hidden">
+      <div className="relative aspect-video w-full overflow-hidden rounded-lg">
         <Image
           src="https://www.pinkvilla.com/images/2026-02/2138235306_dhurandhar-4.jpg"
           alt="Dhurandhar on OTT (PC: Ranveer Singh, Y)"
@@ -206,7 +206,7 @@ export default function ArticleContent() {
             <span className="text-sm text-gray-600">Sponsored Links by Taboola</span>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Card 1 */}
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
               <div className="relative h-40 bg-gradient-to-br from-orange-200 to-orange-400"></div>

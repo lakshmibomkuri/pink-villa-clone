@@ -7,7 +7,7 @@ export default function VideosPage() {
   return (
     <div className="min-h-screen bg-[#ffffff]">
       <Header />
-      <main>
+      <main className="flex-1 min-w-0 max-w-[1200px] mx-auto px-2">
         <VideoHero />
         {/* 
          */}

@@ -37,6 +37,9 @@ const navItems = [
         { label: "South", href: "#" },
         { label: "Hollywood", href: "#" },
         { label: "TV", href: "#" },
+        { label: "Anime", href: "#" },
+        { label: "Movie Reviews", href: "#" },
+        { label: "Exclusives", href: "#" },
         { label: "Explore All", href: "#" }
       ],
       articles: [
@@ -131,9 +134,9 @@ const navItems = [
     href: "#",
     megaMenu: {
       categories: [
-        { label: "K-Pop Music", href: "#" },
-        { label: "K-Dramas", href: "#" },
-        { label: "Korean Movies", href: "#" },
+        { label: "Music", href: "#" },
+        { label: "TV Series", href: "#" },
+        { label: "Updates", href: "#" },
         { label: "Explore All", href: "#" }
       ],
       articles: [
@@ -183,7 +186,6 @@ const navItems = [
       categories: [
         { label: "Love & Relationships", href: "#" },
         { label: "Food & Travel", href: "#" },
-        { label: "Home & Decor", href: "#" },
         { label: "Explore All", href: "#" }
       ],
       articles: [
@@ -279,8 +281,6 @@ const navItems = [
     megaMenu: {
       categories: [
         { label: "Makeup Tutorials", href: "#" },
-        { label: "Skincare Routines", href: "#" },
-        { label: "Product Reviews", href: "#" },
         { label: "Explore All", href: "#" }
       ],
       articles: [
@@ -329,8 +329,6 @@ const navItems = [
     megaMenu: {
       categories: [
         { label: "Celebrity Style", href: "#" },
-        { label: "Street Fashion", href: "#" },
-        { label: "Designer Collections", href: "#" },
         { label: "Explore All", href: "#" }
       ],
       articles: [
@@ -415,22 +413,22 @@ export default function Header() {
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="flex items-center h-[50px]">
             
-            {/* Logo - always on left */}
-            <Link href="/" className="flex items-center">
-             {/* Hamburger menu - always on right */}
-             <button 
+            {/* Hamburger menu */}
+            <button 
               className="p-1" 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
+
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
               <svg viewBox="0 0 150 30" className="h-6 w-auto">
                 <text x="0" y="24" fill="#e31837" fontWeight="bold" fontSize="24" fontFamily="Arial, sans-serif">
                   PINKVILLA
                 </text>
               </svg>
-              
             </Link>
 
             {/* Navigation links with dropdowns */}
@@ -439,32 +437,18 @@ export default function Header() {
                 <div key={item.label} className="relative group">
                   <Link
                     href={item.href}
-                    className="text-[10px] md:text-[11px] lg:text-[16px] text-[#333333] hover:text-[#e31837] transition-colors flex items-center gap-1 whitespace-nowrap"
+                    className="text-[10px] md:text-[11px] lg:text-[14px] font-bold text-[#333333] hover:text-[#e31837] transition-colors flex items-center gap-1 whitespace-nowrap"
                   >
                     {item.label}
                     {item.submenu && <ChevronDown className="h-3 w-3" />}
                   </Link>
                   {/* Desktop mega menu - hidden on mobile/tablet */}
                   {item.megaMenu && (
-                    <div className="hidden lg:block fixed left-0 right-0 bg-white shadow-lg border-b border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="max-w-6xl mx-auto flex">
-                        {/* Left sidebar with categories */}
-                        <div className="w-64 bg-gray-50 p-6">
-                          <div className="text-blue-600 text-sm font-medium mb-4">Explore All {item.label} Categories</div>
-                          {item.megaMenu.categories.map((category) => (
-                            <Link
-                              key={category.label}
-                              href={category.href}
-                              className="block py-3 text-sm text-gray-700 hover:text-red-600 border-b border-gray-200 last:border-b-0"
-                            >
-                              {category.label}
-                            </Link>
-                          ))}
-                        </div>
-                        
-                        {/* Right content with articles */}
-                        <div className="flex-1 p-6">
-                          <div className="grid grid-cols-3 gap-6">
+                    <div className="hidden lg:block fixed left-0 right-0 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      {item.label === "Cinema" || item.label === "Sports Life" ? (
+                        // Cinema & Sports Life - Full width gallery without categories
+                        <div className="max-w-6xl mx-auto p-6">
+                          <div className="grid grid-cols-4 gap-6">
                             {item.megaMenu.articles.map((article, index) => (
                               <Link key={index} href="#" className="flex gap-3 group/article">
                                 <div className="relative w-20 h-14 flex-shrink-0 overflow-hidden rounded">
@@ -484,7 +468,48 @@ export default function Header() {
                             ))}
                           </div>
                         </div>
-                      </div>
+                      ) : (
+                        // Other sections - With categories sidebar
+                        <div className="max-w-6xl mx-auto flex">
+                          {/* Left sidebar with categories */}
+                          <div className="w-64 p-6">
+                            <div className="bg-gray-100 rounded p-4">
+                            {item.megaMenu.categories.map((category) => (
+                              <Link
+                                key={category.label}
+                                href={category.href}
+                                className="block py-3 text-sm text-gray-700 hover:text-red-600 border-b border-gray-200 last:border-b-0"
+                              >
+                                {category.label}
+                              </Link>
+                            ))}
+                            </div>
+                          </div>
+                          
+                          {/* Right content with articles */}
+                          <div className="flex-1 p-6">
+                            <div className="grid grid-cols-3 gap-6">
+                              {item.megaMenu.articles.map((article, index) => (
+                                <Link key={index} href="#" className="flex gap-3 group/article">
+                                  <div className="relative w-20 h-14 flex-shrink-0 overflow-hidden rounded">
+                                    <Image
+                                      src={article.image}
+                                      alt={article.title}
+                                      fill
+                                      className="object-cover"
+                                    />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <h4 className="text-sm font-medium leading-tight line-clamp-3 group-hover/article:text-red-600">
+                                      {article.title}
+                                    </h4>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
                   {/* Box Office and other dropdowns */}
@@ -628,6 +653,13 @@ export default function Header() {
                   )}
                 </div>
               ))}
+              <Link
+                href="/gallery"
+                className="block py-3 text-[14px] font-medium mt-4"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+              Photo Gallery
+              </Link>
             </nav>
 
             {/* Social Media Icons */}

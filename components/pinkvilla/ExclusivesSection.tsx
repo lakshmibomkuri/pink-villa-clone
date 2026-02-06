@@ -44,7 +44,7 @@ const exclusives = [
 export default function ExclusivesSection() {
   return (
     <section className="py-8 bg-white">
-      <div className="max-w-[1200px] mx-auto px-4">
+      <div className="max-w-[1200px] mx-auto">
         <h2 className="text-[28px] font-bold mb-6 text-black">
           Exclusives
         </h2>

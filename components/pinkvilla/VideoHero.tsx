@@ -38,7 +38,7 @@ const featuredVideos = [
 export default function VideoHero() {
   return (
     <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 py-6">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-600 mb-6">
           <Link href="/" className="hover:text-[#e31837]">HOME</Link>

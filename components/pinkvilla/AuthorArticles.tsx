@@ -68,8 +68,8 @@ const articles = [
 
 export default function AuthorArticles({ slug }: { slug: string }) {
   return (
-    <div className="max-w-[1200px] mx-auto px-[30px]">
-
+    <div className="max-w-[1200px] mx-auto">
+       
       {/* Articles Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-2">
         <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-black">Articles Written By Ayushi Agrawal</h2>

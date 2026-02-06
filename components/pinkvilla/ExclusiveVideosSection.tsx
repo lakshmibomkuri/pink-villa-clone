@@ -42,11 +42,13 @@ export default function ExclusiveVideosSection() {
   return (
     <section className="bg-white mt-5">
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-black">Exclusive Videos</h2>
+        <Link href="/videos">
+          <h2 className="text-2xl font-bold mb-6 text-black hover:text-red-600 cursor-pointer">Exclusive Videos</h2>
+        </Link>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {videos.map((video, index) => (
-            <Link key={index} href="#" className="group block relative">
+            <Link key={index} href="/videos" className="group block relative">
               <div className="relative aspect-video overflow-hidden rounded">
                 <Image
                   src={video.image}

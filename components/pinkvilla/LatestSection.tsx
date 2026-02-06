@@ -89,7 +89,7 @@ const LatestSection = () => {
 
           {/* ROW 1 – TOP STORY */}
           <Link
-            href="#"
+            href="/article"
             className="block relative group h-[300px] sm:h-[350px] lg:h-[420px] rounded-md overflow-hidden shadow-md"
             aria-label="Top Story: Yami Gautam set to make a cameo"
           >
@@ -133,7 +133,7 @@ const LatestSection = () => {
           {/* ROW 2 – 4 UNIQUE CARDS */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
             {rowTwoArticles.map((item, index) => (
-              <div key={index}>
+              <Link href="/article" key={index}>
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -144,14 +144,14 @@ const LatestSection = () => {
                 <h4 className="mt-2 text-xs sm:text-sm font-semibold leading-snug">
                   {item.title}
                 </h4>
-              </div>
+              </Link>
             ))}
           </div>
 
           {/* ROW 3 – 3 UNIQUE CARDS */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
             {rowThreeArticles.map((item, index) => (
-              <div key={index}>
+              <Link href="/article" key={index}>
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -162,7 +162,7 @@ const LatestSection = () => {
                 <h4 className="mt-2 text-xs sm:text-sm font-semibold leading-snug">
                   {item.title}
                 </h4>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -176,7 +176,7 @@ const LatestSection = () => {
 
     <div className="divide-y divide-gray-200">
       {latestItems.map((item, index) => (
-        <div key={index} className="flex gap-2 sm:gap-3 px-3 sm:px-4 py-3 sm:py-4">
+        <Link href="/article" key={index} className="flex gap-2 sm:gap-3 px-3 sm:px-4 py-3 sm:py-4 hover:bg-gray-50">
           <span className="text-red-600 font-bold select-none text-sm">
             {index + 1}
           </span>
@@ -197,7 +197,7 @@ const LatestSection = () => {
               BY {item.author}
             </p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
 

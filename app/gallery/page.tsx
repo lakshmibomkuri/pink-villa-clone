@@ -5,11 +5,14 @@ import GalleryGrid from "@/components/pinkvilla/GalleryGrid"
 
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen bg-[#ffffff]">
+    <div className="min-h-screen bg-[#ffffff] flex flex-col">
       <Header />
-      <main>
-        <GalleryHero />
-        <GalleryGrid />
+      <main className="flex flex-1 max-w-[1200px] mx-auto gap-2 mt-4 w-full">
+        {/* Main Content */}
+        <section className="flex-1 min-w-0">
+          <GalleryHero />
+          <GalleryGrid />
+        </section>
       </main>
       <Footer />
     </div>

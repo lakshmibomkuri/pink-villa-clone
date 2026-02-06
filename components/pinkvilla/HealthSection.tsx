@@ -191,7 +191,7 @@ export default function HealthSection() {
 
   return (
     <section className="py-4 sm:py-6 lg:py-8 bg-white">
-      <div className="max-w-[1200px] mx-auto sm:px-4">
+      <div className="max-w-[1200px] mx-auto">
         <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold">Health</h2>
 
         {/* Tabs */}
